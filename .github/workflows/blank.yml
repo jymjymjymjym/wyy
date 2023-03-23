@@ -1,0 +1,20 @@
+name: Run wyy cg
+on:
+  schedule:
+   # 每天国际时间 17:20 运行一次, 中国时间 01:20
+    - cron: '30 00 * * *'
+  workflow_dispatch:
+
+  
+  
+jobs:
+  jjyytest1:
+    name: jjytest
+    runs-on: ubuntu-latest
+    steps:
+     - uses: actions/checkout@v3
+     - uses: actions/setup-node@v3.6.0
+       with: 
+         node-version: '14'
+     - name: test index cript667788
+       run: node index.js
