@@ -1,6 +1,8 @@
 const fetch = (...args) =>
   import('node-fetch').then(({ default: fetch }) => fetch(...args))
 
+  
+sign()
 function sign () {
   let failStr = ''
   // 163 - 1 (360)
@@ -109,9 +111,9 @@ function sign () {
     }
   })
 
-  const arr = [edge0,edge1,edge2,edge3]
+  const arr = [edge0, edge1, edge2, edge3]
 
-  Promise.all(arr).then(e=>{
+  Promise.all(arr).then(e => {
     if (failStr) {
       failHandle(failStr)
     }
