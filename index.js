@@ -2,8 +2,8 @@ const fetch = (...args) =>
   import('node-fetch').then(({ default: fetch }) => fetch(...args))
 
   
-sign()
-function sign () {
+main()
+function main () {
   let failStr = ''
   // 163 - 1 (360)
   const edge3 = fetch('https://n.cg.163.com/api/v2/sign-today', {
@@ -38,7 +38,7 @@ function sign () {
       accept: 'application/json, text/plain, */*',
       'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8',
       authorization:
-        'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsIm5iZiI6MTYzOTcwNjQzMiwidHlwZSI6ImFjY2VzcyIsImlhdCI6MTYzOTcwNjQzMiwianRpIjoiMzc3YWEwMDItZjQxMi00YzUwLWIyMWYtMGI0YWM0ZmU0YjUxIiwidXNlcl9jbGFpbXMiOnsic2FsdCI6OTQsIm51bWJlciI6NDQxOTkzODUyLCJ0aW1lc3RhbXAiOjE2Mzk3MDY0MzJ9LCJpZGVudGl0eSI6IjYxYmJlZjQwYjlhZTM2MjM3MTNlMjUyZiJ9.lT8Jjc2rfiI7OVot9tv7gWO6DJeeGuozYKpzpN62QkQ',
+        'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTQ0OTE1ODQsIm5iZiI6MTcxNDQ5MTU4NCwianRpIjoiNGI1NGMyOGUtMzY3MS00YzdiLWFkZDgtZDdkYTk4ZGM1NmFkIiwiaWRlbnRpdHkiOiI2MWJiZWY0MGI5YWUzNjIzNzEzZTI1MmYiLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJudW1iZXIiOjQzODg4OTcwNywidGltZXN0YW1wIjoxNzE0NDkxNTg0LCJzYWx0Ijo4Nn19.pJc6_mXtL5Sn8mRu7FCso8mmi9uFbYxLItEbDqoD_Tc',
       'sec-fetch-dest': 'empty',
       'sec-fetch-mode': 'cors',
       'sec-fetch-site': 'same-site',
