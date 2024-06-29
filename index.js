@@ -1,9 +1,9 @@
 const fetch = (...args) =>
   import('node-fetch').then(({ default: fetch }) => fetch(...args))
 
-  
+
 main()
-function main () {
+function main() {
   let failStr = ''
   // 163 - 1 (360)
   const edge3 = fetch('https://n.cg.163.com/api/v2/sign-today', {
@@ -33,31 +33,31 @@ function main () {
   })
 
   // 163 - 2 (edge0)
-  const edge0 = fetch('https://n.cg.163.com/api/v2/sign-today', {
-    headers: {
-      accept: 'application/json, text/plain, */*',
-      'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8',
-      authorization:
-        'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTQ0OTE1ODQsIm5iZiI6MTcxNDQ5MTU4NCwianRpIjoiNGI1NGMyOGUtMzY3MS00YzdiLWFkZDgtZDdkYTk4ZGM1NmFkIiwiaWRlbnRpdHkiOiI2MWJiZWY0MGI5YWUzNjIzNzEzZTI1MmYiLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJudW1iZXIiOjQzODg4OTcwNywidGltZXN0YW1wIjoxNzE0NDkxNTg0LCJzYWx0Ijo4Nn19.pJc6_mXtL5Sn8mRu7FCso8mmi9uFbYxLItEbDqoD_Tc',
-      'sec-fetch-dest': 'empty',
-      'sec-fetch-mode': 'cors',
-      'sec-fetch-site': 'same-site',
-      'x-platform': '0'
-    },
-    referrer: 'https://cg.163.com/',
-    referrerPolicy: 'no-referrer-when-downgrade',
-    body: null,
-    method: 'POST',
-    mode: 'cors',
-    credentials: 'include'
-  }).then(res => {
-    if (res.statusText == 'OK') {
-      console.log('edge0 成功')
-    } else {
-      console.log('edge0 失败')
-      failStr = failStr + 'edge0 失败 '
-    }
-  })
+  // const edge0 = fetch('https://n.cg.163.com/api/v2/sign-today', {
+  //   headers: {
+  //     accept: 'application/json, text/plain, */*',
+  //     'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8',
+  //     authorization:
+  //       'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTQ0OTE1ODQsIm5iZiI6MTcxNDQ5MTU4NCwianRpIjoiNGI1NGMyOGUtMzY3MS00YzdiLWFkZDgtZDdkYTk4ZGM1NmFkIiwiaWRlbnRpdHkiOiI2MWJiZWY0MGI5YWUzNjIzNzEzZTI1MmYiLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJudW1iZXIiOjQzODg4OTcwNywidGltZXN0YW1wIjoxNzE0NDkxNTg0LCJzYWx0Ijo4Nn19.pJc6_mXtL5Sn8mRu7FCso8mmi9uFbYxLItEbDqoD_Tc',
+  //     'sec-fetch-dest': 'empty',
+  //     'sec-fetch-mode': 'cors',
+  //     'sec-fetch-site': 'same-site',
+  //     'x-platform': '0'
+  //   },
+  //   referrer: 'https://cg.163.com/',
+  //   referrerPolicy: 'no-referrer-when-downgrade',
+  //   body: null,
+  //   method: 'POST',
+  //   mode: 'cors',
+  //   credentials: 'include'
+  // }).then(res => {
+  //   if (res.statusText == 'OK') {
+  //     console.log('edge0 成功')
+  //   } else {
+  //     console.log('edge0 失败')
+  //     failStr = failStr + 'edge0 失败 '
+  //   }
+  // })
 
   // 163 - 3 (edge1)
   const edge1 = fetch('https://n.cg.163.com/api/v2/sign-today', {
@@ -122,7 +122,7 @@ function main () {
 
 //------------------------------------------------------------------ bird
 // bird()
-function bird () {
+function bird() {
   fetch('http://49.232.169.143:4000/api/user/reports', {
     credentials: 'include',
     headers: {
@@ -175,7 +175,7 @@ function bird () {
   })
 }
 
-function failHandle (edge) {
+function failHandle(edge) {
   fetch(
     `http://www.pushplus.plus/send/d5c255f8bb3f4b1c848f8a85dcce6aac?content=${edge}`
   )
