@@ -1,21 +1,31 @@
 const fs = require('fs');
 const path = require('path');
-main()
 
+const fail_list = []
+
+main()
 async function main() {
-  const root = 'authorization'
+  const root = 'list'
   const list = fs.readdirSync(root)
 
-  const fail_list = []
-  for (let i = 0; i < list.length; i++) {
-    const item = list[i];
-    const token = fs.readFileSync(path.join(root, item)).toString()
-    // console.log(token)
-    const res = await send(item, token)
-    if (res) fail_list.push(res)
+  for (let j = 0; j < list.length; j++) {
+    const dir = list[j];
+    const dir_list = fs.readdirSync(path.join(root, dir))
+    for (let i = 0; i < dir_list.length; i++) {
+      const item = dir_list[i];
+      const token = fs.readFileSync(path.join(root, dir, item)).toString()
+      const title = `${dir}_${item}`
+      // console.log(title, token)
+      const res = await send(title, token)
+      if (res) fail_list.push(res)
+    }
   }
 
-  if (fail_list.length > 0) pushWX(fail_list)
+
+  if (fail_list.length > 0) {
+    pushWX(fail_list)
+    throw new Error(fail_list.join(' ') + " 失败")
+  }
 }
 
 function pushWX(fail_list) {
@@ -43,11 +53,7 @@ async function send(item, token) {
     mode: 'cors',
     credentials: 'include'
   }).then(res => {
-    if (res.statusText == 'OK') {
-      // console.log('edge3 成功')
-    } else {
-      // console.log('edge3 失败')
-      // failStr = failStr + 'edge3 失败 '
+    if (res.statusText !== 'OK') {
       return item
     }
   })
