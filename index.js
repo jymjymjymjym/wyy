@@ -24,7 +24,7 @@ async function main() {
 
   if (fail_list.length > 0) {
     pushWX(fail_list)
-    throw new Error(fail_list.join(' ') + " 失败")
+    throw new Error(fail_list.join(' ') + " 发送失败")
   }
 }
 
